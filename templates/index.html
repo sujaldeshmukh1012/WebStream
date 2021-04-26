@@ -1,0 +1,52 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+      <div class="main--body-div">
+        <div class="main--top-h1">
+          <h1>DAY 10 of <strong>Frontend</strong> Web development</h1>
+        </div>
+
+        <div class="main--video-div">
+          <!-- <video src="./coding background video.mp4" class="main--video" ></video> -->
+ 
+          <video
+            id="video"
+            width="auto"
+            height="auto"
+            controls='controls'
+            class="main--video"
+            poster = "{{video.poster.url}}"
+            autoplay="none"
+          >
+            <source src="{{video.video.url}}"  />
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+        <div class="main--video-info-div">
+          <h4 class="main--video-title">{{video.title}}</h4>
+          <div class="main--video-info-other">
+            <span class="material-icons-outlined"> schedule </span
+            ><span>{{video.videoLength}} mins</span>
+
+            <span class="material-icons-outlined">hiking</span>
+            <span>Level {{video.level}}</span>
+          </div>
+          <p class="main--video-desc">
+              {{video.description}}
+          </p>
+        </div>
+        <div class="personal--response">
+          <h3>What you have learned today (its mandatory)</h3>
+          <form method="post">
+          {% csrf_token %}
+            <textarea type="text" name='response'  maxlength="500" required></textarea>
+            <button class="personal--response-btn" type="submit">Submit</button>
+          </form>
+        </div>
+        <div class="main--btn-div"></div>
+      </div>
+    </section>
+{% endblock %}

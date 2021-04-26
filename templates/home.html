@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="search--div">
+  <form method="GET" class="search--form">
+<input type="text" name="title" id="id_title"></td></tr>
+    <button class="search--btn material-icons-outlined" type="=" submit>
+      search
+    </button>
+  </form>
+      {% if count == 0 %}
+      </div>
+      </div>
+  <div class="no-video-div" >
+        <p>No Videos yet<a href=""> Contact ME</a> for guidance</p>
+  </div>
+  {% else %}
+  <div class="task--div">
+    <h6>Task:</h6>
+    <h6>Make a small simple landing page</h6>
+  </div>
+</div>
+<div class="filter--div"></div>
+<div class="all--videos-div">
+
+  {% for x in allvideo %}
+
+  <div
+    class="video--card d-flex flex-column justify-content-center align-items-center"
+  >
+    <img src="{{x.poster.url}}" class="video--card-img" />
+    <p><a href="stream/{{x.id}}">{{x.title}}</a></p>
+    <div class="d-flex justify-content-center align-items-center">
+      <span class="material-icons-outlined date--icon"> calendar_today </span
+      ><span>{{x.posted}}</span>
+    </div>
+  </div>
+  {% endfor %}
+  {% endif %}
+
+</div>
+{% endblock %}

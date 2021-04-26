@@ -1,0 +1,37 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<head>
+    <title>Login here</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+
+</head>
+
+    <body>
+    <form method="post" class="login-form">
+     {% csrf_token %} 
+
+  <h1>Login</h1>
+  <div class="form-input-material">
+    <input type="text" name="username" id="id_username" autofocus placeholder=" " 
+    maxlength="150" autocomplete="username" autocapitalize="none"  required class="form-control-material" />
+
+    <label for="id_username">Username</label>
+  </div>
+  <div class="form-input-material">
+
+
+
+    <input type="password" name="password" id="id_password" placeholder=" " autocomplete="current-password"
+     required class="form-control-material" />
+
+
+    <label for="password">Password</label>
+  </div>
+  <button type="submit" class="btn btn-ghost">Login</button>
+</form>
+    
+    
+    </body>
+    
+    </html>
